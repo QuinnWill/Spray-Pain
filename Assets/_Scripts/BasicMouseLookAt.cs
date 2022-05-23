@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class BasicMouseLookAt : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+
+    private void OnEnable()
     {
-        
+        InputManager.aim += UpdateAim;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        float angle = Vector2.SignedAngle(Vector2.right, Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        InputManager.aim -= UpdateAim;
+    }
+   
+    private void UpdateAim(Vector2 input)
+    {
+        float angle = Vector2.SignedAngle(Vector2.right, Camera.main.ScreenToWorldPoint(input));
 
         transform.rotation = Quaternion.Euler(0, 0, angle);
-        Debug.Log(Vector2.SignedAngle(Vector2.right, Camera.main.ScreenToWorldPoint(Input.mousePosition)));
+        Debug.Log(Vector2.SignedAngle(Vector2.right, Camera.main.ScreenToWorldPoint(input)));
     }
 }
