@@ -5,6 +5,7 @@ using UnityEngine;
 public class BasicMouseLookAt : MonoBehaviour
 {
 
+    public Vector2 aimPos;
 
     private void OnEnable()
     {
@@ -18,7 +19,13 @@ public class BasicMouseLookAt : MonoBehaviour
    
     private void UpdateAim(Vector2 input)
     {
-        float angle = Vector2.SignedAngle(Vector2.right, Camera.main.ScreenToWorldPoint(input));
+        aimPos = input;
+        
+    }
+
+    private void Update()
+    {
+        float angle = Vector2.SignedAngle(Vector2.right, Camera.main.ScreenToWorldPoint(aimPos) - transform.position);
 
         transform.rotation = Quaternion.Euler(0, 0, angle);
     }
