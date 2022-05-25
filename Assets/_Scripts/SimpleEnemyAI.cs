@@ -9,9 +9,9 @@ public class SimpleEnemyAI : MonoBehaviour
     public float movementSpeed, bulletSpeed;
     public float attackSpeed;
     public float attackRange;
-    bool playerInRange, alreadyAttacked;
-    Vector3 pathDirection, bulletDirection;
-    float maxDistance;
+    public bool playerInRange, alreadyAttacked;
+    public Vector2 pathDirection, bulletDirection;
+    public float maxDistance;
     public GameObject projectile;
 
     // Start is called before the first frame update
@@ -23,7 +23,7 @@ public class SimpleEnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerInRange = Physics.CheckSphere(transform.position, attackRange, playerMask);
+        playerInRange = Physics2D.OverlapCircle(transform.position, attackRange);
 
         if (!playerInRange)
             PathToPlayer();
@@ -35,18 +35,18 @@ public class SimpleEnemyAI : MonoBehaviour
     {
         pathDirection = player.position - transform.position;
         pathDirection = pathDirection.normalized * Time.deltaTime * movementSpeed;
-        maxDistance = Vector3.Distance(transform.position, player.position);
+        maxDistance = Vector2.Distance(transform.position, player.position);
         transform.position += Vector3.ClampMagnitude(pathDirection, maxDistance);
     }
 
-   void AttackPlayer()
+    void AttackPlayer()
     {
         if (!alreadyAttacked)
         {
             bulletDirection = player.position - transform.position;
             bulletDirection = bulletDirection.normalized;
-            Rigidbody bullet = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            bullet.AddForce(bulletDirection * bulletSpeed, ForceMode.Impulse);
+            Rigidbody2D bullet = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody2D>();
+            bullet.AddForce(bulletDirection * bulletSpeed, ForceMode2D.Impulse);
             alreadyAttacked = true;
             Invoke(nameof(AttackReset), attackSpeed);
         }
