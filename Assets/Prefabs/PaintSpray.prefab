@@ -89,10 +89,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03fc7312455be794a83d3bbf5b96f5bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reloading: 0
+  maxAmmo: 50
   ammo: 0
-  reloadTime: 0
-  activeReloadTime: 0
+  reloadTime: 5
+  activeReloadTime: 2
   spraying: 0
+  ammoUsageRate: 10
   paintParticles: {fileID: 401092318858309817}
 --- !u!1001 &4207336707489929010
 PrefabInstance:

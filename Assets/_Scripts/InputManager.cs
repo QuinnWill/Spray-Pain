@@ -98,13 +98,13 @@ public class InputManager : MonoBehaviour
     }
 
     private void ReloadStartCall()
-    { 
-        
+    {
+        reloadStart.Invoke();
     }
 
     private void ReloadEndCall()
-    { 
-        
+    {
+        reloadEnd.Invoke();
     }
     #endregion
 

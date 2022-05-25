@@ -6,6 +6,9 @@ public class FlameSprayPaint : ASpraypaint
 {
 
     public bool spraying;
+    
+
+    public float ammoUsageRate;
 
     [SerializeField]
     private ParticleSystem paintParticles;
@@ -19,16 +22,20 @@ public class FlameSprayPaint : ASpraypaint
             
         }
         paintParticles.Stop();
+
+        ammo = maxAmmo;
     }
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         InputManager.useStart += Activate;
         InputManager.useEnd += Deactivate;
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
+        base.OnDisable();
         InputManager.useStart -= Activate;
         InputManager.useEnd -= Deactivate;
     }
@@ -37,8 +44,28 @@ public class FlameSprayPaint : ASpraypaint
     void Update()
     {
         if (spraying)
-        { 
-            
+        {
+            if (ammo > 0)
+            {
+                ammo -= ammoUsageRate * Time.deltaTime;
+            }
+            if (ammo < 0)
+            {
+                Deactivate();
+                ammo = 0;
+            }
+        }
+        else if (reloading)
+        {
+            if (ammo < maxAmmo)
+            {
+                ammo += ammoPerSecond * Time.deltaTime;
+            }
+
+            if (ammo > maxAmmo)
+            {
+                ammo = maxAmmo;
+            }
         }
     }
 
@@ -49,7 +76,7 @@ public class FlameSprayPaint : ASpraypaint
 
     protected override void Activate()
     {
-        if (!spraying)
+        if (!spraying && ammo > 0)
         {
             spraying = true;
             paintParticles.Play();
@@ -68,6 +95,16 @@ public class FlameSprayPaint : ASpraypaint
     private void OnTriggerStay(Collider other)
     {
         Debug.Log("Trying to do damage");
+    }
+
+    protected override void OnReloadStart()
+    {
+        base.OnReloadStart();
+    }
+
+    protected override void OnReloadEnd()
+    {
+        base.OnReloadEnd();
     }
 
 }
