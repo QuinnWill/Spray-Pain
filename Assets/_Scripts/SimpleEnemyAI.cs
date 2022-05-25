@@ -9,6 +9,8 @@ public class SimpleEnemyAI : MonoBehaviour
     public float movementSpeed, bulletSpeed;
     public float attackSpeed;
     public float attackRange;
+    public float health;
+    public float maxHealth = 100;
     bool playerInRange, alreadyAttacked;
     Vector3 pathDirection, bulletDirection;
     float maxDistance;
@@ -18,6 +20,7 @@ public class SimpleEnemyAI : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player").transform;
+        health = maxHealth;
     }
 
     // Update is called once per frame
@@ -31,6 +34,14 @@ public class SimpleEnemyAI : MonoBehaviour
             AttackPlayer();
     }
 
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        if(health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
     void PathToPlayer()
     {
         pathDirection = player.position - transform.position;
