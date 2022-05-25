@@ -9,7 +9,10 @@ public class HealthSystem : MonoBehaviour
 
     public float health;
 
-
+    private void Start()
+    {
+        health = maxHealth;
+    }
     private void Update()
     {
         if (health <= 0)

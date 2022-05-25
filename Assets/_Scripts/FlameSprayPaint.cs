@@ -95,6 +95,11 @@ public class FlameSprayPaint : ASpraypaint
     private void OnTriggerStay(Collider other)
     {
         Debug.Log("Trying to do damage");
+        HealthSystem healthSystem = other.GetComponent<HealthSystem>();
+        if (healthSystem)
+        {
+            healthSystem.AddHealth(-10 * Time.deltaTime);
+        }
     }
 
     protected override void OnReloadStart()
