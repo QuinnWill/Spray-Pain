@@ -213,6 +213,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Reload"",
+                    ""type"": ""Button"",
+                    ""id"": ""9f9a5592-38d6-4daf-aab1-cd52d554890a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -259,6 +268,28 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""Use"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ef6cbb38-cf22-46af-a35a-29c0351b5cc8"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""MouseKeyboard"",
+                    ""action"": ""Reload"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""75683f53-2790-4ed4-8ae6-d627afc20b70"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reload"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -301,6 +332,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Actions = asset.FindActionMap("Actions", throwIfNotFound: true);
         m_Actions_Aim = m_Actions.FindAction("Aim", throwIfNotFound: true);
         m_Actions_Use = m_Actions.FindAction("Use", throwIfNotFound: true);
+        m_Actions_Reload = m_Actions.FindAction("Reload", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -403,12 +435,14 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private IActionsActions m_ActionsActionsCallbackInterface;
     private readonly InputAction m_Actions_Aim;
     private readonly InputAction m_Actions_Use;
+    private readonly InputAction m_Actions_Reload;
     public struct ActionsActions
     {
         private @PlayerInput m_Wrapper;
         public ActionsActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Aim => m_Wrapper.m_Actions_Aim;
         public InputAction @Use => m_Wrapper.m_Actions_Use;
+        public InputAction @Reload => m_Wrapper.m_Actions_Reload;
         public InputActionMap Get() { return m_Wrapper.m_Actions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -424,6 +458,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Use.started -= m_Wrapper.m_ActionsActionsCallbackInterface.OnUse;
                 @Use.performed -= m_Wrapper.m_ActionsActionsCallbackInterface.OnUse;
                 @Use.canceled -= m_Wrapper.m_ActionsActionsCallbackInterface.OnUse;
+                @Reload.started -= m_Wrapper.m_ActionsActionsCallbackInterface.OnReload;
+                @Reload.performed -= m_Wrapper.m_ActionsActionsCallbackInterface.OnReload;
+                @Reload.canceled -= m_Wrapper.m_ActionsActionsCallbackInterface.OnReload;
             }
             m_Wrapper.m_ActionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -434,6 +471,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Use.started += instance.OnUse;
                 @Use.performed += instance.OnUse;
                 @Use.canceled += instance.OnUse;
+                @Reload.started += instance.OnReload;
+                @Reload.performed += instance.OnReload;
+                @Reload.canceled += instance.OnReload;
             }
         }
     }
@@ -465,5 +505,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     {
         void OnAim(InputAction.CallbackContext context);
         void OnUse(InputAction.CallbackContext context);
+        void OnReload(InputAction.CallbackContext context);
     }
 }

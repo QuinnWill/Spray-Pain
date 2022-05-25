@@ -23,14 +23,14 @@ public class FlameSprayPaint : ASpraypaint
 
     private void OnEnable()
     {
-        InputManager.useStarted += Activate;
-        InputManager.useEnded += Deactivate;
+        InputManager.useStart += Activate;
+        InputManager.useEnd += Deactivate;
     }
 
     private void OnDisable()
     {
-        InputManager.useStarted -= Activate;
-        InputManager.useEnded -= Deactivate;
+        InputManager.useStart -= Activate;
+        InputManager.useEnd -= Deactivate;
     }
 
     // Update is called once per frame
@@ -63,6 +63,11 @@ public class FlameSprayPaint : ASpraypaint
             paintParticles.Stop();
             spraying = false;
         }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        Debug.Log("Trying to do damage");
     }
 
 }

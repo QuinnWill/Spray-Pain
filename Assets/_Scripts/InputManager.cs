@@ -30,8 +30,10 @@ public class InputManager : MonoBehaviour
     public static event Action<Vector2> move;
     public static event Action dodge;
     public static event Action<Vector2> aim;
-    public static event Action useStarted;
-    public static event Action useEnded;
+    public static event Action useStart;
+    public static event Action useEnd;
+    public static event Action reloadStart;
+    public static event Action reloadEnd;
     #endregion
 
     #region EnableDisable
@@ -46,6 +48,8 @@ public class InputManager : MonoBehaviour
         playerInput.Actions.Aim.performed += context => AimCall(context.ReadValue<Vector2>());
         playerInput.Actions.Use.started += _ => UseStartedCall();
         playerInput.Actions.Use.canceled += _ => UseEndedCall();
+        playerInput.Actions.Reload.started += _ => ReloadStartCall();
+        playerInput.Actions.Reload.canceled += _ => ReloadEndCall();
 
     }
 
@@ -60,6 +64,8 @@ public class InputManager : MonoBehaviour
         playerInput.Actions.Aim.performed -= context => AimCall(context.ReadValue<Vector2>());
         playerInput.Actions.Use.started -= _ => UseStartedCall();
         playerInput.Actions.Use.canceled -= _ => UseEndedCall();
+        playerInput.Actions.Reload.started -= _ => ReloadStartCall();
+        playerInput.Actions.Reload.canceled -= _ => ReloadEndCall();
         playerInput.Disable();
     }
     #endregion
@@ -83,12 +89,22 @@ public class InputManager : MonoBehaviour
 
     private void UseStartedCall()
     {
-        useStarted?.Invoke();
+        useStart?.Invoke();
     }
 
     private void UseEndedCall()
     {
-        useEnded?.Invoke();
+        useEnd?.Invoke();
+    }
+
+    private void ReloadStartCall()
+    { 
+        
+    }
+
+    private void ReloadEndCall()
+    { 
+        
     }
     #endregion
 
