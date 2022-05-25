@@ -29,7 +29,7 @@ public class HealthSystem : MonoBehaviour
         health = newHealth;
     }
 
-    protected void OnDeath()
+    protected virtual void OnDeath()
     {
         Destroy(gameObject);
     }
