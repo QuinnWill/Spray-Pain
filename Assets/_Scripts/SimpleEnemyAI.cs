@@ -18,6 +18,7 @@ public class SimpleEnemyAI : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player").transform;
+        health = maxHealth;
     }
 
     // Update is called once per frame
@@ -31,6 +32,14 @@ public class SimpleEnemyAI : MonoBehaviour
             AttackPlayer();
     }
 
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        if(health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
     void PathToPlayer()
     {
         pathDirection = player.position - transform.position;
