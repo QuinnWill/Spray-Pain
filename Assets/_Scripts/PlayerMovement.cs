@@ -15,11 +15,13 @@ public class PlayerMovement : MonoBehaviour
     private void OnEnable()
     {
         InputManager.move += MoveInput;
+        //InputManager.dodge += DodgeInput;
     }
 
     private void OnDisable()
     {
         InputManager.move -= MoveInput;
+        //InputManager.dodge -= DodgeInput;
     }
 
     // Start is called before the first frame update
@@ -47,5 +49,12 @@ public class PlayerMovement : MonoBehaviour
     {
         movementInput = input;
     }
+
+    /*
+    private void DodgeInput(Vector2 input)
+    {
+        
+    }
+    */
 
 }
