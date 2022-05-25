@@ -21,6 +21,5 @@ public class BasicMouseLookAt : MonoBehaviour
         float angle = Vector2.SignedAngle(Vector2.right, Camera.main.ScreenToWorldPoint(input));
 
         transform.rotation = Quaternion.Euler(0, 0, angle);
-        Debug.Log(Vector2.SignedAngle(Vector2.right, Camera.main.ScreenToWorldPoint(input)));
     }
 }
