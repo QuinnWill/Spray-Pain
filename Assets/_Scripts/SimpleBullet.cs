@@ -16,7 +16,7 @@ public class SimpleBullet : MonoBehaviour
 
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         var enemy = collision.collider.GetComponent<SimpleEnemyAI>();
         if (enemy)
