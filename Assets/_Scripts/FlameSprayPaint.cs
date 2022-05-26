@@ -6,7 +6,8 @@ public class FlameSprayPaint : ASpraypaint
 {
 
     public bool spraying;
-    
+
+    public Collider2D sprayCollider;
 
     public float ammoUsageRate;
 
@@ -22,6 +23,8 @@ public class FlameSprayPaint : ASpraypaint
             
         }
         paintParticles.Stop();
+
+        sprayCollider.enabled = false;
 
         ammo = maxAmmo;
     }
@@ -69,16 +72,13 @@ public class FlameSprayPaint : ASpraypaint
         }
     }
 
-    protected void Spray()
-    { 
-        
-    }
 
     protected override void Activate()
     {
         if (!spraying && ammo > 0)
         {
             spraying = true;
+            sprayCollider.enabled = true;
             paintParticles.Play();
         }
     }
@@ -88,14 +88,16 @@ public class FlameSprayPaint : ASpraypaint
         if (spraying)
         {
             paintParticles.Stop();
+            sprayCollider.enabled = false;
             spraying = false;
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerStay2D(Collider2D collider)
     {
         Debug.Log("Trying to do damage");
-        HealthSystem healthSystem = other.GetComponent<HealthSystem>();
+        HealthSystem healthSystem = collider.GetComponent<HealthSystem>();
+        Debug.Log(healthSystem);
         if (healthSystem)
         {
             healthSystem.AddHealth(-10 * Time.deltaTime);

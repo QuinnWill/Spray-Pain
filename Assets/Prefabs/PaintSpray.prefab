@@ -96,6 +96,7 @@ MonoBehaviour:
   reloadTime: 5
   activeReloadTime: 2
   spraying: 0
+  sprayCollider: {fileID: 401092317809610158}
   ammoUsageRate: 10
   paintParticles: {fileID: 401092318858309817}
 --- !u!1001 &4207336707489929010

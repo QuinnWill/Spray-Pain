@@ -1498,6 +1498,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 75914202446656942, guid: 9677bbc2f3844804dbff1121fedf302b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1914955585611906514, guid: 9677bbc2f3844804dbff1121fedf302b, type: 3}
       propertyPath: m_Name
       value: Simple Enemy (3)
