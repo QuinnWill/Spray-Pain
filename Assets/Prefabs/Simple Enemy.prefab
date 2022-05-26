@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 1914955585611906517}
   - component: {fileID: 1914955585611906516}
   - component: {fileID: 1914955585611906515}
+  - component: {fileID: 8550399980057754172}
+  - component: {fileID: 6097924550536377572}
+  - component: {fileID: 75914202446656942}
   m_Layer: 0
   m_Name: Simple Enemy
   m_TagString: Untagged
@@ -103,10 +106,61 @@ MonoBehaviour:
   movementSpeed: 4
   bulletSpeed: 6
   attackSpeed: 1
-  attackRange: 5
+  attackRange: 2
   playerInRange: 0
   alreadyAttacked: 0
   pathDirection: {x: 0, y: 0}
   bulletDirection: {x: 0, y: 0}
   maxDistance: 0
   projectile: {fileID: 3103076016665989071, guid: ac1cdc0a4f87e8c429bfa3c3516d280d, type: 3}
+--- !u!114 &8550399980057754172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914955585611906514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1517662da33f664abd342a595bf28f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 30
+  health: 0
+--- !u!50 &6097924550536377572
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914955585611906514}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &75914202446656942
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914955585611906514}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
