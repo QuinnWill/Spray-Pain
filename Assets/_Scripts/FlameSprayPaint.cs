@@ -7,24 +7,28 @@ public class FlameSprayPaint : ASpraypaint
 
     public bool spraying;
 
-    public Collider2D sprayCollider;
-
     public float ammoUsageRate;
 
     [SerializeField]
     private ParticleSystem paintParticles;
+
+    [SerializeField]
+    private Collider2D hitBox;
 
     // Start is called before the first frame update
     void Awake()
     {
         if (!paintParticles)
         {
-            paintParticles = GetComponentInChildren<ParticleSystem>();
-            
+            //paintParticles = GetComponentInChildren<ParticleSystem>();
+            paintParticles = GetComponent<ParticleSystem>();
         }
         paintParticles.Stop();
 
-        sprayCollider.enabled = false;
+        if (!hitBox)
+        {
+            hitBox = GetComponent<Collider2D>();
+        }
 
         ammo = maxAmmo;
     }
@@ -57,6 +61,7 @@ public class FlameSprayPaint : ASpraypaint
                 Deactivate();
                 ammo = 0;
             }
+
         }
         else if (reloading)
         {
@@ -78,7 +83,7 @@ public class FlameSprayPaint : ASpraypaint
         if (!spraying && ammo > 0)
         {
             spraying = true;
-            sprayCollider.enabled = true;
+            hitBox.enabled = true;
             paintParticles.Play();
         }
     }
@@ -88,21 +93,46 @@ public class FlameSprayPaint : ASpraypaint
         if (spraying)
         {
             paintParticles.Stop();
-            sprayCollider.enabled = false;
+            hitBox.enabled = false;
             spraying = false;
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collider)
+
+
+    private void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log("Trying to do damage");
-        HealthSystem healthSystem = collider.GetComponent<HealthSystem>();
-        Debug.Log(healthSystem);
+        Debug.Log(other.name + " staying in trigger");
+        HealthSystem healthSystem = other.GetComponent<HealthSystem>();
         if (healthSystem)
         {
             healthSystem.AddHealth(-10 * Time.deltaTime);
         }
     }
+
+    /*private void OnParticleTrigger()
+    {
+        List<ParticleSystem.Particle> enter = new List<ParticleSystem.Particle>();
+        Debug.Log("Triggered");
+        //ParticleSystem.ColliderData enterData;
+        
+        int numEnter = paintParticles.GetTriggerParticles(ParticleSystemTriggerEventType.Enter, enter, out var enterData);
+        Debug.Log(numEnter);
+        for (int i = 0; i < numEnter; i++)
+        {
+            for (int j = 0; j < enterData.GetColliderCount(i); j++)
+            {
+                Collider2D enemyCollider = enterData.GetCollider(i, j).GetComponent<Collider2D>();
+                Debug.Log(enemyCollider.name + " Taking Damage");
+                HealthSystem healthSystem = enemyCollider.GetComponent<HealthSystem>();
+                if (healthSystem)
+                {
+                    healthSystem.AddHealth(-100 * (enter[i].remainingLifetime / enter[i].startLifetime));
+                }
+            }
+            
+        }
+    }*/
 
     protected override void OnReloadStart()
     {
