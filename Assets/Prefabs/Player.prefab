@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7514996398824078157}
   - component: {fileID: 7514996398824078156}
   - component: {fileID: 7514996398824078152}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,6 +149,10 @@ PrefabInstance:
     - target: {fileID: 401092317809610156, guid: 664274ed640f54915aa3e98e81b66e16, type: 3}
       propertyPath: m_Name
       value: PaintSpray
+      objectReference: {fileID: 0}
+    - target: {fileID: 401092317809610156, guid: 664274ed640f54915aa3e98e81b66e16, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 401092317809610157, guid: 664274ed640f54915aa3e98e81b66e16, type: 3}
       propertyPath: m_RootOrder
