@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -1093,10 +1093,10 @@ TextureImporter:
       SprayPainTileSet_43: -155749999
       SprayPainTileSet_22: -1655753644
       SprayPainTileSet_35: 2051438084
+      SprayPainTileSet_38: 418350770
       SprayPainTileSet_37: -1254513102
       SprayPainTileSet_32: 8526252
       SprayPainTileSet_12: -710122280
-      SprayPainTileSet_38: 418350770
       SprayPainTileSet_39: -1236502867
       SprayPainTileSet_8: 971058489
       SprayPainTileSet_19: 1260661691

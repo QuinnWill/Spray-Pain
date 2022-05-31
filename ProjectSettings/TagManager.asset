@@ -12,7 +12,7 @@ TagManager:
   - Water
   - UI
   - Enemy
-  - 
+  - Scene
   - 
   - 
   - 
@@ -38,6 +38,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1365528561
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: SceneObjects
+    uniqueID: 3896902297
+    locked: 0
+  - name: FrontScene
+    uniqueID: 241989849
+    locked: 0
+  - name: FrontForeground
+    uniqueID: 761569421
     locked: 0
