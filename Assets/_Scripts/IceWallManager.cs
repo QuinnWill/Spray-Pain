@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class IceWallManager : MonoBehaviour
 {
+
+    float timeCreated;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        timeCreated = Time.time;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AtFrameZero()
     {
-        
+        Debug.Log(Time.time - timeCreated);
+        if (Time.time - timeCreated > 4)
+        {
+            Destroy(transform.parent.gameObject);
+        }
     }
 }
