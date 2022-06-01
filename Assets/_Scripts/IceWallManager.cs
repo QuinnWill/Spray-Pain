@@ -15,7 +15,6 @@ public class IceWallManager : MonoBehaviour
 
     public void AtFrameZero()
     {
-        Debug.Log(Time.time - timeCreated);
         if (Time.time - timeCreated > 0.1f)
         {
             Destroy(transform.parent.gameObject);
