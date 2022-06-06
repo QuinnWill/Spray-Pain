@@ -55,6 +55,12 @@ public class PolarPaint : ASpraypaint
     protected override void Activate()
     {
 
+        if (!active)
+        {
+            Deactivate();
+            return;
+        }
+
         Debug.Log(aimDirection);
 
         Vector2 key1 = Vector2.zero;

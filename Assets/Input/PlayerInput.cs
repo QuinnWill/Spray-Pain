@@ -222,6 +222,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchWeapon"",
+                    ""type"": ""Button"",
+                    ""id"": ""24921129-82d4-4b89-8601-755a01348e9f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -290,6 +299,28 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""Reload"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3c6531e0-f452-48b7-9a30-8606620216ac"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""MouseKeyboard"",
+                    ""action"": ""SwitchWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""122d460e-350e-4f31-b481-25d52ae55ce5"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""SwitchWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -333,6 +364,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Actions_Aim = m_Actions.FindAction("Aim", throwIfNotFound: true);
         m_Actions_Use = m_Actions.FindAction("Use", throwIfNotFound: true);
         m_Actions_Reload = m_Actions.FindAction("Reload", throwIfNotFound: true);
+        m_Actions_SwitchWeapon = m_Actions.FindAction("SwitchWeapon", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -436,6 +468,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Actions_Aim;
     private readonly InputAction m_Actions_Use;
     private readonly InputAction m_Actions_Reload;
+    private readonly InputAction m_Actions_SwitchWeapon;
     public struct ActionsActions
     {
         private @PlayerInput m_Wrapper;
@@ -443,6 +476,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Aim => m_Wrapper.m_Actions_Aim;
         public InputAction @Use => m_Wrapper.m_Actions_Use;
         public InputAction @Reload => m_Wrapper.m_Actions_Reload;
+        public InputAction @SwitchWeapon => m_Wrapper.m_Actions_SwitchWeapon;
         public InputActionMap Get() { return m_Wrapper.m_Actions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -461,6 +495,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Reload.started -= m_Wrapper.m_ActionsActionsCallbackInterface.OnReload;
                 @Reload.performed -= m_Wrapper.m_ActionsActionsCallbackInterface.OnReload;
                 @Reload.canceled -= m_Wrapper.m_ActionsActionsCallbackInterface.OnReload;
+                @SwitchWeapon.started -= m_Wrapper.m_ActionsActionsCallbackInterface.OnSwitchWeapon;
+                @SwitchWeapon.performed -= m_Wrapper.m_ActionsActionsCallbackInterface.OnSwitchWeapon;
+                @SwitchWeapon.canceled -= m_Wrapper.m_ActionsActionsCallbackInterface.OnSwitchWeapon;
             }
             m_Wrapper.m_ActionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -474,6 +511,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Reload.started += instance.OnReload;
                 @Reload.performed += instance.OnReload;
                 @Reload.canceled += instance.OnReload;
+                @SwitchWeapon.started += instance.OnSwitchWeapon;
+                @SwitchWeapon.performed += instance.OnSwitchWeapon;
+                @SwitchWeapon.canceled += instance.OnSwitchWeapon;
             }
         }
     }
@@ -506,5 +546,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnAim(InputAction.CallbackContext context);
         void OnUse(InputAction.CallbackContext context);
         void OnReload(InputAction.CallbackContext context);
+        void OnSwitchWeapon(InputAction.CallbackContext context);
     }
 }

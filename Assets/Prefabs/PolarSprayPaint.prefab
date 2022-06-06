@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5002438699781297103
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5002438699781297101}
+  - component: {fileID: 5002438699781297100}
+  m_Layer: 0
+  m_Name: PolarSprayPaint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5002438699781297101
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5002438699781297103}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5002438699781297100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5002438699781297103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a028dc1be991a7d48ac22151992f4b6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reloading: 0
+  active: 0
+  maxAmmo: 5
+  ammo: 5
+  reloadTime: 0
+  activeReloadTime: 0
+  spawnRadius: 2.5
+  keys:
+  - {x: 1, y: 0}
+  - {x: 0.5, y: 0.5}
+  - {x: 0, y: 1}
+  - {x: -0.5, y: 0.5}
+  - {x: -1, y: 0}
+  - {x: -0.5, y: -0.5}
+  - {x: 0, y: -1}
+  - {x: 0.5, y: -0.5}
+  values:
+  - {fileID: 3598706841381429517, guid: 275eff1890d6f39468d9f0153fef417e, type: 3}
+  - {fileID: 2287790283421895066, guid: 272a110e0bcdf124c88dfb2d88f02b0a, type: 3}
+  - {fileID: 7719598755739815228, guid: bbbd9af0eb06d314982f74975aedb06e, type: 3}
+  - {fileID: 7062412226477405647, guid: d06b3a6d21fd9bb4fa4125075227644b, type: 3}
+  - {fileID: 7302248828156992064, guid: 305e7dd2589e8c541b29eb4f818d0c6b, type: 3}
+  - {fileID: 2284189841617355125, guid: 2ff5fc0eb874ff545862e733c29738b3, type: 3}
+  - {fileID: 1609350707539382395, guid: 6fe3f1812e1aa1a44ab8636cbffee523, type: 3}
+  - {fileID: 8235488100917491423, guid: a01136b01de2f3649a619d9586ce60d5, type: 3}
