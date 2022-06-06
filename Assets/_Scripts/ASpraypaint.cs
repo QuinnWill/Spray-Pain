@@ -40,7 +40,19 @@ public abstract class ASpraypaint : MonoBehaviour
         {
             if (ammo < maxAmmo)
             {
-                ammo += ammoPerSecond / 5 * Time.deltaTime;
+                ammo += ammoPerSecond / 4 * Time.deltaTime;
+            }
+
+            if (ammo > maxAmmo)
+            {
+                ammo = maxAmmo;
+            }
+        }
+        else
+        {
+            if (ammo < maxAmmo)
+            {
+                ammo += ammoPerSecond * Time.deltaTime;
             }
 
             if (ammo > maxAmmo)

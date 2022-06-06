@@ -46,9 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reloading: 0
   active: 0
-  maxAmmo: 5
-  ammo: 5
-  reloadTime: 0
+  maxAmmo: 10
+  ammo: 10
+  reloadTime: 5
   activeReloadTime: 0
   spawnRadius: 2.5
   keys:

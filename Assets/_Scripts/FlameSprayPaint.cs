@@ -52,7 +52,6 @@ public class FlameSprayPaint : ASpraypaint
     // Update is called once per frame
     protected override void Update()
     {
-        base.Update();
 
         if (spraying)
         {
@@ -72,6 +71,18 @@ public class FlameSprayPaint : ASpraypaint
             if (ammo < maxAmmo)
             {
                 ammo += ammoPerSecond * Time.deltaTime;
+            }
+
+            if (ammo > maxAmmo)
+            {
+                ammo = maxAmmo;
+            }
+        }
+        else
+        {
+            if (ammo < maxAmmo)
+            {
+                ammo += ammoPerSecond / 4 * Time.deltaTime;
             }
 
             if (ammo > maxAmmo)

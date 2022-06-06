@@ -41,10 +41,21 @@ public class PolarPaint : ASpraypaint
         }*/
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
-        
+        base.Update();
+        if (reloading)
+        {
+            if (ammo < maxAmmo)
+            {
+                ammo += ammoPerSecond * Time.deltaTime;
+            }
+
+            if (ammo > maxAmmo)
+            {
+                ammo = maxAmmo;
+            }
+        }
     }
 
     protected void AimInput(Vector2 input)
@@ -55,7 +66,7 @@ public class PolarPaint : ASpraypaint
     protected override void Activate()
     {
 
-        if (!active)
+        if (!active || ammo < 5)
         {
             Deactivate();
             return;
@@ -92,6 +103,14 @@ public class PolarPaint : ASpraypaint
         GameObject wall2 = Instantiate(values[keys.IndexOf(key2)]);
         key2.Normalize();
         wall2.transform.position = transform.position + new Vector3(key2.x, key2.y * 0.8f) * spawnRadius;
+
+
+        ammo -= maxAmmo / 2;
+        if (ammo < 0)
+        {
+            ammo = 0;
+        }
+
     }
 
     protected override void Deactivate()
