@@ -2,52 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SimpleEnemyAI : MonoBehaviour
+public class SimpleEnemyAttack : MonoBehaviour
 {
     Transform player;
     public LayerMask playerMask;
-    public float movementSpeed, bulletSpeed;
-    public float attackSpeed;
-    public float attackRange;
+    public float attackSpeed, attackRange, bulletSpeed;
     public bool playerInRange, alreadyAttacked;
-    public Vector2 pathDirection, bulletDirection;
-    public float maxDistance;
+    public Vector2 bulletDirection;
     public GameObject projectile;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player").transform;
-        //health = maxHealth;
+        playerMask = LayerMask.GetMask("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        playerInRange = Physics2D.OverlapCircle(transform.position, attackRange);
+        playerInRange = Physics2D.OverlapCircle(transform.position, attackRange, playerMask);
 
-        if (!playerInRange)
-            PathToPlayer();
-        else
+        if (playerInRange)
             AttackPlayer();
     }
-
-    public void TakeDamage(float damage)
-    {
-        /*health -= damage;
-        if(health <= 0)
-        {
-            Destroy(gameObject);
-        }*/
-    }
-    void PathToPlayer()
-    {
-        pathDirection = player.position - transform.position;
-        pathDirection = pathDirection.normalized * Time.deltaTime * movementSpeed;
-        maxDistance = Vector2.Distance(transform.position, player.position);
-        transform.position += Vector3.ClampMagnitude(pathDirection, maxDistance);
-    }
-
     void AttackPlayer()
     {
         if (!alreadyAttacked)

@@ -18,9 +18,9 @@ public class SimpleBullet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        var enemy = collision.collider.GetComponent<SimpleEnemyAI>();
-        if (enemy)
-            enemy.TakeDamage(20);
-        Destroy(gameObject);
+        var player = collision.collider.CompareTag("Player");
+        var wall = collision.collider.CompareTag("Wall");
+        if(player | wall)
+            Destroy(gameObject);
     }
 }

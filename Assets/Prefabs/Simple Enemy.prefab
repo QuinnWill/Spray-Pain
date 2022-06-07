@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8550399980057754172}
   - component: {fileID: 6097924550536377572}
   - component: {fileID: 75914202446656942}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Simple Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,11 +102,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 8
   movementSpeed: 4
   bulletSpeed: 6
   attackSpeed: 1
-  attackRange: 2
+  attackRange: 0.1
   playerInRange: 0
   alreadyAttacked: 0
   pathDirection: {x: 0, y: 0}
@@ -158,7 +158,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
