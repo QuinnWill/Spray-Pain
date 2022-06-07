@@ -48,7 +48,7 @@ MonoBehaviour:
   active: 0
   maxAmmo: 10
   ammo: 10
-  reloadTime: 5
+  reloadTime: 3
   inactiveReloadRatio: 0.5
   spawnRadius: 2.5
   keys:
