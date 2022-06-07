@@ -95,7 +95,7 @@ MonoBehaviour:
   maxAmmo: 50
   ammo: 0
   reloadTime: 5
-  activeReloadTime: 2
+  inactiveReloadRatio: 0.25
   spraying: 0
   ammoUsageRate: 10
   damage: 20

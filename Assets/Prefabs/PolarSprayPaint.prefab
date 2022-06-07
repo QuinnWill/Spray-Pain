@@ -49,7 +49,7 @@ MonoBehaviour:
   maxAmmo: 10
   ammo: 10
   reloadTime: 5
-  activeReloadTime: 0
+  inactiveReloadRatio: 0.5
   spawnRadius: 2.5
   keys:
   - {x: 1, y: 0}

@@ -13,7 +13,8 @@ public abstract class ASpraypaint : MonoBehaviour
     public float ammo;
 
     public float reloadTime;
-    public float activeReloadTime;
+    [Range(0,1)]
+    public float inactiveReloadRatio;
 
     protected float ammoPerSecond;
 
@@ -40,7 +41,7 @@ public abstract class ASpraypaint : MonoBehaviour
         {
             if (ammo < maxAmmo)
             {
-                ammo += ammoPerSecond / 4 * Time.deltaTime;
+                ammo += ammoPerSecond * inactiveReloadRatio * Time.deltaTime;
             }
 
             if (ammo > maxAmmo)
