@@ -34,7 +34,8 @@ public class CameraFollow : MonoBehaviour
         Vector3 newPos = trackedObject.position + lookDirection.normalized * 3;
         newPos.z = transform.position.z;
 
-        transform.position = Vector3.Lerp(transform.position, newPos, 0.1f);
+        //transform.position = Vector3.Lerp(transform.position, newPos, 0.3f);
+        transform.position = newPos;
     }
 
     public void UpdateLookDIr(Vector2 dir)
