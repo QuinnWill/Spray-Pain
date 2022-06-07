@@ -9,11 +9,11 @@ public class HealthSystem : MonoBehaviour
 
     public float health;
 
-    private void Start()
+    protected virtual void Start()
     {
         health = maxHealth;
     }
-    private void Update()
+    protected virtual void Update()
     {
         if (health <= 0)
         {
@@ -22,12 +22,12 @@ public class HealthSystem : MonoBehaviour
     }
 
 
-    public void AddHealth(float addHealth)
+    public virtual void AddHealth(float addHealth)
     {
         health += addHealth;
     }
 
-    public void SetHealth(float newHealth)
+    public virtual void SetHealth(float newHealth)
     {
         health = newHealth;
     }
