@@ -18,9 +18,27 @@ public class SimpleBullet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        var enemy = collision.collider.GetComponent<SimpleEnemyAI>();
+        var enemy = collision.gameObject.GetComponent<HealthSystem>();
+
         if (enemy)
-            enemy.TakeDamage(20);
+        {
+            enemy.AddHealth(-10);
+        }
         Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 3)
+        {
+            var enemy = collision.GetComponent<HealthSystem>();
+
+            if (enemy)
+            {
+                enemy.AddHealth(-10);
+            }
+            Destroy(gameObject);
+        }
+
     }
 }
