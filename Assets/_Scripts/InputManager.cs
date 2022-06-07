@@ -34,6 +34,7 @@ public class InputManager : MonoBehaviour
     public static event Action useEnd;
     public static event Action reloadStart;
     public static event Action reloadEnd;
+    public static event Action switchWeapon;
     #endregion
 
     #region EnableDisable
@@ -50,6 +51,7 @@ public class InputManager : MonoBehaviour
         playerInput.Actions.Use.canceled += _ => UseEndedCall();
         playerInput.Actions.Reload.started += _ => ReloadStartCall();
         playerInput.Actions.Reload.canceled += _ => ReloadEndCall();
+        playerInput.Actions.SwitchWeapon.performed += _ => SwitchWeapon();
 
     }
 
@@ -66,6 +68,7 @@ public class InputManager : MonoBehaviour
         playerInput.Actions.Use.canceled -= _ => UseEndedCall();
         playerInput.Actions.Reload.started -= _ => ReloadStartCall();
         playerInput.Actions.Reload.canceled -= _ => ReloadEndCall();
+        playerInput.Actions.SwitchWeapon.performed -= _ => SwitchWeapon();
         playerInput.Disable();
     }
     #endregion
@@ -99,12 +102,17 @@ public class InputManager : MonoBehaviour
 
     private void ReloadStartCall()
     {
-        reloadStart.Invoke();
+        reloadStart?.Invoke();
     }
 
     private void ReloadEndCall()
     {
-        reloadEnd.Invoke();
+        reloadEnd?.Invoke();
+    }
+
+    private void SwitchWeapon()
+    {
+        switchWeapon?.Invoke();
     }
     #endregion
 

@@ -8,12 +8,14 @@ public class FlameSprayPaint : ASpraypaint
     public bool spraying;
 
     public float ammoUsageRate;
+    public float damage = 10;
 
     [SerializeField]
     private ParticleSystem paintParticles;
 
     [SerializeField]
     private Collider2D hitBox;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -48,8 +50,9 @@ public class FlameSprayPaint : ASpraypaint
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
+
         if (spraying)
         {
             if (ammo > 0)
@@ -75,11 +78,28 @@ public class FlameSprayPaint : ASpraypaint
                 ammo = maxAmmo;
             }
         }
+        else
+        {
+            if (ammo < maxAmmo)
+            {
+                ammo += ammoPerSecond / 4 * Time.deltaTime;
+            }
+
+            if (ammo > maxAmmo)
+            {
+                ammo = maxAmmo;
+            }
+        }
     }
 
 
     protected override void Activate()
     {
+        if (!active)
+        {
+            Deactivate();
+            return;
+        }
         if (!spraying && ammo > 0)
         {
             spraying = true;
@@ -106,7 +126,7 @@ public class FlameSprayPaint : ASpraypaint
         HealthSystem healthSystem = other.GetComponent<HealthSystem>();
         if (healthSystem)
         {
-            healthSystem.AddHealth(-10 * Time.deltaTime);
+            healthSystem.AddHealth(-damage * Time.deltaTime);
         }
     }
 

@@ -7,11 +7,14 @@ public abstract class ASpraypaint : MonoBehaviour
 
     public bool reloading;
 
+    public bool active;
+
     public float maxAmmo;
     public float ammo;
 
     public float reloadTime;
-    public float activeReloadTime;
+    [Range(0,1)]
+    public float inactiveReloadRatio;
 
     protected float ammoPerSecond;
 
@@ -32,12 +35,45 @@ public abstract class ASpraypaint : MonoBehaviour
         InputManager.reloadEnd -= OnReloadEnd;
     }
 
+    protected virtual void Update()
+    {
+        if (!reloading)
+        {
+            if (ammo < maxAmmo)
+            {
+                ammo += ammoPerSecond * inactiveReloadRatio * Time.deltaTime;
+            }
+
+            if (ammo > maxAmmo)
+            {
+                ammo = maxAmmo;
+            }
+        }
+        else
+        {
+            if (ammo < maxAmmo)
+            {
+                ammo += ammoPerSecond * Time.deltaTime;
+            }
+
+            if (ammo > maxAmmo)
+            {
+                ammo = maxAmmo;
+            }
+        }
+    }
+
     protected abstract void Activate();
 
     protected abstract void Deactivate();
 
     protected virtual void OnReloadStart()
     {
+        if (!active)
+        {
+            return;
+        }
+
         if (ammo < maxAmmo)
         {
             reloading = true;
