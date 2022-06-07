@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &44771388 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9017868740598539959, guid: 8a2456f13cdbac74aa8314149f4052f4, type: 3}
+  m_PrefabInstance: {fileID: 7514996398543355726}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a028dc1be991a7d48ac22151992f4b6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &160491223
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,7 +322,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1225299489
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &178567471
@@ -2306,7 +2317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96c511b3f32a8a243bc3504828570f1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprayPaint: {fileID: 1507031527}
+  sprayPaint: {fileID: 44771388}
   image: {fileID: 1301862587}
 --- !u!114 &1547226352
 MonoBehaviour:
