@@ -40,6 +40,6 @@ public class CameraFollow : MonoBehaviour
 
     public void UpdateLookDIr(Vector2 dir)
     {
-        lookDirection = Camera.main.ScreenToWorldPoint(dir);
+        lookDirection = Vector3.Lerp(lookDirection, Camera.main.ScreenToWorldPoint(dir), 0.05f);
     }
 }
