@@ -31,7 +31,8 @@ public class CameraFollow : MonoBehaviour
     void LateUpdate()
     {
 
-        Vector3 newPos = trackedObject.position + lookDirection.normalized * 3;
+        //Vector3 newPos = trackedObject.position + lookDirection.normalized * 3;
+        Vector3 newPos = trackedObject.position;
         newPos.z = transform.position.z;
 
         //transform.position = Vector3.Lerp(transform.position, newPos, 0.3f);
