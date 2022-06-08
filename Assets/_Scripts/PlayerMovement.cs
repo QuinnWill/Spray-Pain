@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private enum State {
+    public enum State {
         Normal,
         Rolling,
     }
@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float rollSpeed;
     
-    private State state;
+    public State state;
 
 
     private void OnEnable()

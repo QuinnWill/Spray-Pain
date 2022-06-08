@@ -115,7 +115,7 @@ public class PolarPaint : ASpraypaint
 
     }
 
-    protected override void Deactivate()
+    public override void Deactivate()
     {
 
     }

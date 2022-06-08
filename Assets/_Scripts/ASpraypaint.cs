@@ -65,7 +65,7 @@ public abstract class ASpraypaint : MonoBehaviour
 
     protected abstract void Activate();
 
-    protected abstract void Deactivate();
+    public abstract void Deactivate();
 
     protected virtual void OnReloadStart()
     {

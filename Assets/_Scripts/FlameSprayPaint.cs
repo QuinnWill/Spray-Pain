@@ -108,7 +108,7 @@ public class FlameSprayPaint : ASpraypaint
         }
     }
 
-    protected override void Deactivate()
+    public override void Deactivate()
     {
         if (spraying)
         {
