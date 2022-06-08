@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private enum State {
+        Normal,
+        Rolling,
+    }
 
     public Rigidbody2D rb;
 
@@ -13,11 +17,16 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 rollInput;
 
+    private float rollSpeed;
+    
+    private State state;
+
 
     private void OnEnable()
     {
         InputManager.move += MoveInput;
         InputManager.dodge += DodgeInput;
+        state = State.Normal;
     }
 
     private void OnDisable()
@@ -38,13 +47,36 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        switch (state)
+        {
+            case State.Normal:
+                break;
+            case State.Rolling:
+                float rollSpeedDivider = 5f;
+                rollSpeed -= rollSpeed * rollSpeedDivider * Time.deltaTime;
+
+                float rollSpeedMin = 3f;
+                if (rollSpeed < rollSpeedMin)
+                {
+                    state = State.Normal;
+                }
+                break;
+        }
     }
+    
 
     private void FixedUpdate()
     {
-        rb.velocity /= 1.3f;
-        rb.AddForce(movementInput * speed * 20);
+        switch(state)
+        {
+            case State.Normal:
+            rb.velocity /= 1.3f;
+            rb.AddForce(movementInput * speed * 20);
+            break;
+        case State.Rolling:
+            rb.velocity = rollInput * rollSpeed;
+            break;
+        }
     }
 
     private void MoveInput(Vector2 input)
@@ -55,6 +87,8 @@ public class PlayerMovement : MonoBehaviour
     private void DodgeInput()
     {
         rollInput = movementInput;
+        rollSpeed = 40f;
+        state = State.Rolling;
     }
 
 }
