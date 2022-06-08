@@ -799,6 +799,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 75914202446656942, guid: 9677bbc2f3844804dbff1121fedf302b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1914955585611906514, guid: 9677bbc2f3844804dbff1121fedf302b, type: 3}
       propertyPath: m_Name
       value: Simple Enemy (5)
@@ -856,6 +860,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 75914202446656942, guid: 9677bbc2f3844804dbff1121fedf302b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1914955585611906514, guid: 9677bbc2f3844804dbff1121fedf302b, type: 3}
       propertyPath: m_Name
       value: Simple Enemy (1)
@@ -1344,6 +1352,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 75914202446656942, guid: 9677bbc2f3844804dbff1121fedf302b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1914955585611906514, guid: 9677bbc2f3844804dbff1121fedf302b, type: 3}
       propertyPath: m_Name
       value: Simple Enemy (4)
@@ -1401,6 +1413,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 75914202446656942, guid: 9677bbc2f3844804dbff1121fedf302b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1914955585611906514, guid: 9677bbc2f3844804dbff1121fedf302b, type: 3}
       propertyPath: m_Name
       value: Simple Enemy (2)
@@ -1569,9 +1585,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 75914202446656942, guid: 9677bbc2f3844804dbff1121fedf302b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1914955585611906514, guid: 9677bbc2f3844804dbff1121fedf302b, type: 3}
       propertyPath: m_Name
       value: Simple Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914955585611906515, guid: 9677bbc2f3844804dbff1121fedf302b, type: 3}
+      propertyPath: playerInRange
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1914955585611906517, guid: 9677bbc2f3844804dbff1121fedf302b, type: 3}
       propertyPath: m_RootOrder
@@ -1670,6 +1694,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 75914202446656942, guid: 9677bbc2f3844804dbff1121fedf302b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1914955585611906514, guid: 9677bbc2f3844804dbff1121fedf302b, type: 3}
       propertyPath: m_Name
       value: Simple Enemy (3)
@@ -2676,9 +2704,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 9017868740598539956, guid: 8a2456f13cdbac74aa8314149f4052f4, type: 3}
-      propertyPath: m_Layer
-      value: 1
+    - target: {fileID: 7514996398824078159, guid: 8a2456f13cdbac74aa8314149f4052f4, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a2456f13cdbac74aa8314149f4052f4, type: 3}
