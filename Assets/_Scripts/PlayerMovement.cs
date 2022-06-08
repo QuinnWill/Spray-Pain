@@ -52,10 +52,10 @@ public class PlayerMovement : MonoBehaviour
             case State.Normal:
                 break;
             case State.Rolling:
-                float rollSpeedDivider = 5f;
+                float rollSpeedDivider = 6f;
                 rollSpeed -= rollSpeed * rollSpeedDivider * Time.deltaTime;
 
-                float rollSpeedMin = 3f;
+                float rollSpeedMin = 5f;
                 if (rollSpeed < rollSpeedMin)
                 {
                     state = State.Normal;
@@ -87,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
     private void DodgeInput()
     {
         rollInput = movementInput;
-        rollSpeed = 40f;
+        rollSpeed = 30f;
         state = State.Rolling;
     }
 

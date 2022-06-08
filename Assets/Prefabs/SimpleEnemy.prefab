@@ -103,9 +103,9 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 4
+  slowdownDistance: 8
   pickNextWaypointDist: 1
-  endReachedDistance: 4
+  endReachedDistance: 8
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
@@ -140,8 +140,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   attackSpeed: 2
-  attackRange: 4
-  bulletSpeed: 8
+  attackRange: 8
+  bulletSpeed: 12
   playerInRange: 0
   alreadyAttacked: 0
   bulletDirection: {x: 0, y: 0}
