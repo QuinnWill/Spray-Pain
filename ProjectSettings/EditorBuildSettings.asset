@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: c58671b16dcf1af41875ff1981826f4d
   - enabled: 1
-    path: Assets/Scenes/PlayerMovementTest.unity
-    guid: 22ab42ca0994d2149af6a1e198879cd1
+    path: Assets/Scenes/LevelOne.unity
+    guid: c564fe82ffdcd9340b7ddb8a8396d06b
   - enabled: 1
     path: Assets/Scenes/Congratulations.unity
     guid: 07db95c3cf6c42746b9a2b74a396423a
