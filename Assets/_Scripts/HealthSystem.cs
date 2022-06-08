@@ -9,9 +9,12 @@ public class HealthSystem : MonoBehaviour
 
     public float health;
 
+    public bool canTakeDamage;
+
     protected virtual void Start()
     {
         health = maxHealth;
+        canTakeDamage = true;
     }
     protected virtual void Update()
     {
@@ -24,7 +27,10 @@ public class HealthSystem : MonoBehaviour
 
     public virtual void AddHealth(float addHealth)
     {
-        health += addHealth;
+        if (canTakeDamage)
+        {
+            health += addHealth;
+        }
     }
 
     public virtual void SetHealth(float newHealth)
