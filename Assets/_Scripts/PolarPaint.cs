@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class PolarPaint : ASpraypaint
 {
@@ -104,6 +105,7 @@ public class PolarPaint : ASpraypaint
         key2.Normalize();
         wall2.transform.position = transform.position + new Vector3(key2.x, key2.y * 0.8f) * spawnRadius;
 
+        AstarPath.active.Scan();
 
         ammo -= maxAmmo / 2;
         if (ammo < 0)

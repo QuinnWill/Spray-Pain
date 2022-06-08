@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7584419232009629250}
   - component: {fileID: 7584419232009629248}
   - component: {fileID: 7584419232009629253}
+  - component: {fileID: 68426025143102480}
   - component: {fileID: 7584419232009629255}
   - component: {fileID: 7584419232009629254}
   m_Layer: 9
@@ -144,6 +145,20 @@ MonoBehaviour:
   alreadyAttacked: 0
   bulletDirection: {x: 0, y: 0}
   projectile: {fileID: 3103076016665989071, guid: ac1cdc0a4f87e8c429bfa3c3516d280d, type: 3}
+--- !u!114 &68426025143102480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7584419232009629260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1517662da33f664abd342a595bf28f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 20
+  health: 0
 --- !u!58 &7584419232009629255
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -252,8 +267,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 241989849
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 409ad46ffaebddf4184fd3dd78e4ab30, type: 3}
   m_Color: {r: 0.7169812, g: 0.6594874, b: 0.6594874, a: 1}

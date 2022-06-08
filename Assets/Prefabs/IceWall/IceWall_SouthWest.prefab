@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2284189841617355127}
   - component: {fileID: 2284189841617355126}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: IceWall_SouthWest
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 2284189843106804722}
   - component: {fileID: 2284189843106804721}
   - component: {fileID: 5102288118850667343}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Aaron_IceWall_SouthEast_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
