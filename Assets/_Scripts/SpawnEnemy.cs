@@ -28,7 +28,8 @@ public class SpawnEnemy : MonoBehaviour
             {
                 GameObject newEnemy = Instantiate(enemy, position, Quaternion.identity);
             }
+            hasSpawned = true;
         }
-        hasSpawned = true;
+        
     }
 }
