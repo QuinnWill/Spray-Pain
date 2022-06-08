@@ -31,8 +31,8 @@ public class CameraFollow : MonoBehaviour
     void LateUpdate()
     {
 
-        //Vector3 newPos = trackedObject.position + lookDirection.normalized * 3;
-        Vector3 newPos = trackedObject.position;
+        Vector3 newPos = trackedObject.position + lookDirection.normalized * 3;
+        //Vector3 newPos = trackedObject.position;
         newPos.z = transform.position.z;
 
         //transform.position = Vector3.Lerp(transform.position, newPos, 0.3f);
@@ -41,6 +41,6 @@ public class CameraFollow : MonoBehaviour
 
     public void UpdateLookDIr(Vector2 dir)
     {
-        lookDirection = Vector3.Lerp(lookDirection, Camera.main.ScreenToWorldPoint(dir), 0.05f);
+        lookDirection = Vector3.Lerp(lookDirection, Camera.main.ScreenToWorldPoint(dir) - trackedObject.position, 0.05f);
     }
 }
