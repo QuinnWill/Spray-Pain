@@ -18,9 +18,27 @@ public class SimpleBullet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        var player = collision.collider.CompareTag("Player");
-        var wall = collision.collider.CompareTag("Wall");
-        if(player | wall)
+        var enemy = collision.gameObject.GetComponent<HealthSystem>();
+
+        if (enemy)
+        {
+            enemy.AddHealth(-10);
+        }
+        Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 3)
+        {
+            var enemy = collision.GetComponent<HealthSystem>();
+
+            if (enemy)
+            {
+                enemy.AddHealth(-10);
+            }
             Destroy(gameObject);
+        }
+
     }
 }

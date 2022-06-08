@@ -14,6 +14,10 @@ public class ButtonFunctions : MonoBehaviour
         {
             SceneManager.LoadScene(NextSceneIndex);
         }
+        else
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     public void Exit()
